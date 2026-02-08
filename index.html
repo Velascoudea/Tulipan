@@ -14,7 +14,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-
+            
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
@@ -436,6 +436,17 @@
             <canvas id="turtleCanvas" width="800" height="600"></canvas>
         </div>
     </div>
+    <div style="text-align:center; margin-top:10px;">
+    <button id="musicBtn" onclick="toggleMusic()" 
+        style="background:none; border:none; color:white; font-size:14px; cursor:pointer;">
+        🎵 Reproducir
+    </button>
+</div>
+
+<audio id="musica">
+    <source src="assets/2026-02-08 at 5.04.44 PM (1).mp4" type="audio/mpeg">
+</audio>
+
 
     <script type="text/python">
         from browser import document, window
@@ -621,5 +632,20 @@
     <div style="text-align: center; margin-top: 30px; padding: 20px; color: rgba(255, 255, 255, 0.7); font-family: 'Outfit', sans-serif; font-size: 14px;">
         Gracias 😉🌟 <br></div></br><a href="https://github.com/Sandreke" target="_blank" style="color: rgba(255, 255, 255, 0.7); text-decoration: none; font-weight: bold;">Sandreke</a>
     </div>
+    <script>
+function toggleMusic() {
+    const audio = document.getElementById("musica");
+    const btn = document.getElementById("musicBtn");
+
+    if (audio.paused) {
+        audio.play();
+        btn.innerHTML = "⏸️ Pausar";
+    } else {
+        audio.pause();
+        btn.innerHTML = "🎵 Reproducir";
+    }
+}
+</script>
+
 </body>
 </html>
