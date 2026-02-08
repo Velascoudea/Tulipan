@@ -511,7 +511,7 @@
                 if isinstance(data, bytes):
                     data = data.decode('utf-8')
                 turtle_data = json.loads(data)
-                document['status'].textContent = "Listo para dibujar 💕"
+                document['status'].textContent = "Lista para dibujar 💕"
                 return True
             except Exception as e:
                 document['status'].textContent = f"Error: {str(e)}"
@@ -527,7 +527,7 @@
                 if current_shape >= len(turtle_data["coordenadas"]):
                     drawing_active = False
                     status_element = document['status']
-                    status_element.textContent = "¡Dibujado! 🌷💕"
+                    status_element.textContent = "¡Dibujado! 🌷"
                     status_element.className = 'status completed'
                     return
                 
@@ -536,7 +536,7 @@
                 color = turtle_data["color"][current_shape]
                 
                 progress_percentage = int(((current_shape + 1) / len(turtle_data['coordenadas'])) * 100)
-                document['status'].textContent = f"Dibujando... {progress_percentage}% 💕"
+                document['status'].textContent = f"Dibujando... {progress_percentage}% "
                 
                 # Configurar color
                 set_color(color[0], color[1], color[2])
@@ -587,7 +587,7 @@
             drawing_active = False
             if drawing_timeout:
                 clear_timeout(drawing_timeout)
-            document['status'].textContent = "Dibujo pausado 💕"
+            document['status'].textContent = "Dibujo pausado"
 
         def reset_drawing():
             global drawing_active, current_shape, drawing_timeout
@@ -596,7 +596,7 @@
                 clear_timeout(drawing_timeout)
             current_shape = 0
             clear_canvas()
-            document['status'].textContent = "Listo para dibujar tulipanes de amor 💕"
+            document['status'].textContent = "Lista para dibujar?"
 
         def update_speed():
             global turtle_speed
